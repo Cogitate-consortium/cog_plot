@@ -1,10 +1,7 @@
 .. cog_plot documentation master file, created by
-   sphinx-quickstart on Tue Aug 27 10:05:38 2024.
+   sphinx-quickstart on Tue Aug 27 11:10:27 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-
-cog_plot documentation
-======================
 
 .. raw:: html
 
@@ -22,8 +19,8 @@ It can generate three types of plots:
 - Matrices with statistical significance, such as time-frequency decomposition or temporal generalization (``plot_matrix``)
 - Single trial data using a raster plot and a time series plot of the evoked response (``plot_raster``)
 
-Setup guide:
-============
+Setup guide
+===========
 
 The package can be installed via pip, like so:
 
@@ -32,11 +29,12 @@ The package can be installed via pip, like so:
    pip install https://github.com/Cogitate-consortium/cog_plot
 
 Support
-============
+=======
 
 This repository is meant mostly for internal use by the cogitate project. But if you find it useful, don't hesitate to contact us.
 
-## Questions?
+Questions?
+==========
 
 If you have any questions, feel free to open an issue or contact the maintainers (alex.lepauvre@ae.mpg.de).
 
@@ -61,13 +59,12 @@ We would like to thank all the COGITATE consortium members:
 
 This research was supported by Templeton World Charity Foundation (`TWCF0389 <https://doi.org/10.54224/20389>`_) and the Max Planck Society. The opinions expressed in this publication are those of the authors and do not necessarily reflect the views of TWCF.
 
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   plot_matrix <generated/cog_plot.plotters.plot_matrix>
-   plot_rasters <generated/cog_plot.plotters.plot_rasters>
-   plot_time_series <generated/cog_plot.plotters.plot_time_series>
    colors
+
+   plot_matrix <generated/cog_plot.plotters.plot_matrix>
+   plot_time_series <generated/cog_plot.plotters.plot_time_series>
+   plot_rasters <generated/cog_plot.plotters.plot_rasters>
