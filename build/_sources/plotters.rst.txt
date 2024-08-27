@@ -1,0 +1,14 @@
+Plotters Module
+===============
+
+.. automodule:: cog_plot.plotters
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. autosummary::
+   :toctree: generated/
+
+   plot_time_series
+   plot_matrix
+   plot_rasters
