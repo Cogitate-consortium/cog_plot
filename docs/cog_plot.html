@@ -41,7 +41,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'cog_plot';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="cog_plot" href="modules.html" />
     <link rel="prev" title="cog_plot documentation" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -138,13 +137,6 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="modules.html">
-    cog_plot
-  </a>
-</li>
-
   </ul>
 </nav></div>
       
@@ -232,13 +224,6 @@ document.write(`
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
     cog_plot package
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="modules.html">
-    cog_plot
   </a>
 </li>
 
@@ -333,6 +318,35 @@ document.write(`
 </section>
 <section id="module-cog_plot.colors">
 <span id="cog-plot-colors-module"></span><h2>cog_plot.colors module<a class="headerlink" href="#module-cog_plot.colors" title="Link to this heading">#</a></h2>
+<p>This module contains all the standardized colors used in the COGITATE project for consistent visual presentation across publications.</p>
+<p>The <cite>DEFAULT_COLORS</cite> dictionary defines RGB color values for various categories relevant to the project. These colors are used to ensure uniformity in visualizations, particularly in plots and figures generated for COGITATE papers.</p>
+<p>Each entry in the dictionary represents a specific category, and the associated value is a list of three float numbers, representing the RGB color components (ranging from 0 to 1).</p>
+<section id="color-categories">
+<h3>Color Categories:<a class="headerlink" href="#color-categories" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>“iit”: A specific color for IIT (e.g., Integrated Information Theory).</p></li>
+<li><p>“gnw”: A specific color for GNW (e.g., Global Neuronal Workspace).</p></li>
+<li><p>“task relevant”: A color indicating task-relevant elements.</p></li>
+<li><p>“Irrelevant”: A color indicating task-irrelevant elements.</p></li>
+<li><p>“face”: A color representing face-related data.</p></li>
+<li><p>“object”: A color representing object-related data.</p></li>
+<li><p>“letter”: A color representing letter-related data.</p></li>
+<li><p>“false”: A color indicating false responses or conditions.</p></li>
+<li><p>“500ms”: A color for the 500ms time mark.</p></li>
+<li><p>“1000ms”: A color for the 1000ms time mark.</p></li>
+<li><p>“1500ms”: A color for the 1500ms time mark.</p></li>
+</ul>
+<p>These colors are to be used whenever generating plots to maintain consistency across different publications and presentations within the COGITATE project.</p>
+</section>
+<section id="example-usage">
+<h3>Example Usage:<a class="headerlink" href="#example-usage" title="Link to this heading">#</a></h3>
+<p>To use a specific color in a plot:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">color</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="s1">&#39;iit&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="module-cog_plot.plotters">
 <span id="cog-plot-plotters-module"></span><h2>cog_plot.plotters module<a class="headerlink" href="#module-cog_plot.plotters" title="Link to this heading">#</a></h2>
@@ -516,15 +530,6 @@ vertical lines for important time points.</p>
         <p class="prev-next-title">cog_plot documentation</p>
       </div>
     </a>
-    <a class="right-next"
-       href="modules.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">cog_plot</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -544,7 +549,11 @@ vertical lines for important time points.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-cog_plot.colors">cog_plot.colors module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-cog_plot.colors">cog_plot.colors module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-categories">Color Categories:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-usage">Example Usage:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-cog_plot.plotters">cog_plot.plotters module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cog_plot.plotters.plot_matrix"><code class="docutils literal notranslate"><span class="pre">plot_matrix()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cog_plot.plotters.plot_pcolormesh"><code class="docutils literal notranslate"><span class="pre">plot_pcolormesh()</span></code></a></li>
@@ -599,7 +608,7 @@ vertical lines for important time points.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>

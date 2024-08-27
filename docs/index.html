@@ -137,13 +137,6 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="modules.html">
-    cog_plot
-  </a>
-</li>
-
   </ul>
 </nav></div>
       
@@ -236,13 +229,6 @@ document.write(`
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="modules.html">
-    cog_plot
-  </a>
-</li>
-
   </ul>
 </nav></div>
           
@@ -294,50 +280,42 @@ document.write(`
                   
   <section id="cog-plot-documentation">
 <h1>cog_plot documentation<a class="headerlink" href="#cog-plot-documentation" title="Link to this heading">#</a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
-documentation for details.</p>
-<dl class="simple">
-<dt>&lt;div style=”width: 100%; display: flex; justify-content: space-between; align-items: center;”&gt;</dt><dd><p>&lt;img src=”img/cogitate_logo.png” alt=”Left Logo” width=”200”&gt;
-&lt;h1 style=”text-align: center; flex-grow: 1;”&gt;cog_lib&lt;/h1&gt;
-&lt;img src=”img/templeton_logo.png” alt=”Right Logo” width=”200”&gt;</p>
-</dd>
-</dl>
-<p>&lt;/div&gt;</p>
-<p>This repository contains a package called cog_plot containing functions to generate the default plot types used in the cogitate papers</p>
-<p>It can generate three types of plots:
-- time series plot with statistical significance (plot_time_series)
-- Matrices with statistical significance, such as time frequency decomposition or temporal generalization (plot_matrix)
-- Singe trial data using a raster plot and a time series plot of the evoked response (plot_raster)
-## Setup guide:
-The package can be install via pip, like so:
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/Cogitate-consortium/cog_plot</span>
-<span class="pre">`</span></code></p>
-<p>## Support
-This repository is meant mostly for internal use by the cogitate project. But if you find it useful, don’t hesitate to
-contact us.</p>
+<div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+  <img src="../img/cogitate_logo.png" alt="Left Logo" width="200">
+  <h1 style="text-align: center; flex-grow: 1;">cog_lib</h1>
+  <img src="../img/templeton_logo.png" alt="Right Logo" width="200">
+</div><p>This repository contains a package called <code class="docutils literal notranslate"><span class="pre">cog_plot</span></code> containing functions to generate the default plot types used in the cogitate papers.</p>
+<p>It can generate three types of plots:</p>
+<ul class="simple">
+<li><p>Time series plot with statistical significance (<code class="docutils literal notranslate"><span class="pre">plot_time_series</span></code>)</p></li>
+<li><p>Matrices with statistical significance, such as time-frequency decomposition or temporal generalization (<code class="docutils literal notranslate"><span class="pre">plot_matrix</span></code>)</p></li>
+<li><p>Single trial data using a raster plot and a time series plot of the evoked response (<code class="docutils literal notranslate"><span class="pre">plot_raster</span></code>)</p></li>
+</ul>
+</section>
+<section id="setup-guide">
+<h1>Setup guide:<a class="headerlink" href="#setup-guide" title="Link to this heading">#</a></h1>
+<p>The package can be installed via pip, like so:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>https://github.com/Cogitate-consortium/cog_plot
+</pre></div>
+</div>
+</section>
+<section id="support">
+<h1>Support<a class="headerlink" href="#support" title="Link to this heading">#</a></h1>
+<p>This repository is meant mostly for internal use by the cogitate project. But if you find it useful, don’t hesitate to contact us.</p>
 <p>## Questions?</p>
 <p>If you have any questions, feel free to open an issue or contact the maintainers (<a class="reference external" href="mailto:alex&#46;lepauvre&#37;&#52;&#48;ae&#46;mpg&#46;de">alex<span>&#46;</span>lepauvre<span>&#64;</span>ae<span>&#46;</span>mpg<span>&#46;</span>de</a>).</p>
-<p># Acknowledgments
-We would like to thank all the COGITATE consortium members:
-&lt;div style=”display: flex; flex-wrap: wrap; justify-content: space-around;”&gt;</p>
-<blockquote>
-<div><dl>
-<dt>&lt;div style=”text-align: center;”&gt;</dt><dd><dl class="simple">
-<dt>&lt;a href=”<a class="reference external" href="https://www.arc-cogitate.com/our-team">https://www.arc-cogitate.com/our-team</a>” target=”_blank”&gt;</dt><dd><p>&lt;img src=”img/IEEG DP Authors.png” alt=”COGITATE team”&gt;</p>
-</dd>
-</dl>
-<p>&lt;/a&gt;</p>
-</dd>
-</dl>
-<p>&lt;/div&gt;</p>
-</div></blockquote>
-<p>&lt;/div&gt;
-&lt;img style=”float: right;” src=”img/templeton_logo.png” width=200;&gt;
-&lt;br /&gt;
-&lt;br /&gt;</p>
-<p>This research was supported by Templeton World Charity Foundation ([TWCF0389](<a class="reference external" href="https://doi.org/10.54224/20389">https://doi.org/10.54224/20389</a>)) and the Max Planck Society. The opinions expressed in this publication are those of the authors and do not necessarily reflect the views of TWCF.</p>
+</section>
+<section id="acknowledgments">
+<h1>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h1>
+<p>We would like to thank all the COGITATE consortium members:</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+   <div style="text-align: center;">
+      <a href="https://www.arc-cogitate.com/our-team" target="_blank">
+         <img src="../img/IEEG DP Authors.png" alt="COGITATE team">
+      </a>
+   </div>
+</div><a class="reference internal image-reference" href="_images/templeton_logo.png"><img alt="_images/templeton_logo.png" class="align-right" src="_images/templeton_logo.png" style="width: 200px;" /></a>
+<p>This research was supported by Templeton World Charity Foundation (<a class="reference external" href="https://doi.org/10.54224/20389">TWCF0389</a>) and the Max Planck Society. The opinions expressed in this publication are those of the authors and do not necessarily reflect the views of TWCF.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -346,10 +324,6 @@ We would like to thank all the COGITATE consortium members:
 <li class="toctree-l2"><a class="reference internal" href="cog_plot.html#module-cog_plot.colors">cog_plot.colors module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cog_plot.html#module-cog_plot.plotters">cog_plot.plotters module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cog_plot.html#module-cog_plot">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">cog_plot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cog_plot.html">cog_plot package</a></li>
 </ul>
 </li>
 </ul>
@@ -384,6 +358,22 @@ We would like to thank all the COGITATE consortium members:
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">cog_plot documentation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-guide">Setup guide:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#support">Support</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 
@@ -428,7 +418,7 @@ We would like to thank all the COGITATE consortium members:
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>
