@@ -6,11 +6,8 @@
 
 .. raw:: html
 
-   <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-     <img src="./_static/cogitate_logo.png" alt="Left Logo" width="200">
-     <h1 style="text-align: center; flex-grow: 1;">cog_lib</h1>
-     <img src="./_static/templeton_logo.png" alt="Right Logo" width="200">
-   </div>
+cog_plot
+========
 
 This repository contains a package called ``cog_plot`` containing functions to generate the default plot types used in the cogitate papers.
 

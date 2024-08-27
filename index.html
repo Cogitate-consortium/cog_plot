@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setup guide &#8212; cog_plot 0.1 documentation</title>
+    <title>cog_plot &#8212; cog_plot v0.1 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/documentation_options.js?v=34cd777e"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
@@ -121,8 +121,8 @@
       
     
     
-    <img src="_static/cogitate_logo.png" class="logo__image only-light" alt="cog_plot 0.1 documentation - Home"/>
-    <script>document.write(`<img src="_static/cogitate_logo.png" class="logo__image only-dark" alt="cog_plot 0.1 documentation - Home"/>`);</script>
+    <img src="_static/cogitate_logo.png" class="logo__image only-light" alt="cog_plot v0.1 documentation - Home"/>
+    <script>document.write(`<img src="_static/cogitate_logo.png" class="logo__image only-dark" alt="cog_plot v0.1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -175,29 +175,15 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
-        </div>
-      
-      
-        <div class="navbar-item">
-
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
-</script></div>
+</script>
+        </div>
+      
       
     </div>
     
@@ -206,15 +192,13 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
     </div>
   
 
@@ -285,22 +269,6 @@ document.write(`
     
     
     
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
-        
-      </div>
-    
   </div>
   
   
@@ -326,17 +294,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-  <img src="./_static/cogitate_logo.png" alt="Left Logo" width="200">
-  <h1 style="text-align: center; flex-grow: 1;">cog_lib</h1>
-  <img src="./_static/templeton_logo.png" alt="Right Logo" width="200">
-</div><p>This repository contains a package called <code class="docutils literal notranslate"><span class="pre">cog_plot</span></code> containing functions to generate the default plot types used in the cogitate papers.</p>
+  <section id="cog-plot">
+<h1>cog_plot<a class="headerlink" href="#cog-plot" title="Link to this heading">#</a></h1>
+<p>This repository contains a package called <code class="docutils literal notranslate"><span class="pre">cog_plot</span></code> containing functions to generate the default plot types used in the cogitate papers.</p>
 <p>It can generate three types of plots:</p>
 <ul class="simple">
 <li><p>Time series plot with statistical significance (<code class="docutils literal notranslate"><span class="pre">plot_time_series</span></code>)</p></li>
 <li><p>Matrices with statistical significance, such as time-frequency decomposition or temporal generalization (<code class="docutils literal notranslate"><span class="pre">plot_matrix</span></code>)</p></li>
 <li><p>Single trial data using a raster plot and a time series plot of the evoked response (<code class="docutils literal notranslate"><span class="pre">plot_raster</span></code>)</p></li>
 </ul>
+</section>
 <section id="setup-guide">
 <h1>Setup guide<a class="headerlink" href="#setup-guide" title="Link to this heading">#</a></h1>
 <p>The package can be installed via pip, like so:</p>
@@ -425,7 +392,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Setup guide</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">cog_plot</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-guide">Setup guide</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#support">Support</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions?</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
