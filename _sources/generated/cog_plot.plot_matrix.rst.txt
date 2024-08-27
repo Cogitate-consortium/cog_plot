@@ -1,0 +1,6 @@
+﻿cog\_plot.plot\_matrix
+======================
+
+.. currentmodule:: cog_plot
+
+.. autofunction:: plot_matrix
