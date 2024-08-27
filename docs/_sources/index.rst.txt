@@ -67,4 +67,7 @@ This research was supported by Templeton World Charity Foundation (`TWCF0389 <ht
    :maxdepth: 2
    :caption: Contents:
 
-   cog_plot
+   plot_matrix <generated/cog_plot.plotters.plot_matrix>
+   plot_rasters <generated/cog_plot.plotters.plot_rasters>
+   plot_time_series <generated/cog_plot.plotters.plot_time_series>
+   colors

@@ -7,6 +7,7 @@ Each entry in the dictionary represents a specific category, and the associated 
 
 Color Categories:
 -----------------
+
 - "iit": A specific color for IIT (e.g., Integrated Information Theory).
 - "gnw": A specific color for GNW (e.g., Global Neuronal Workspace).
 - "task relevant": A color indicating task-relevant elements.
@@ -23,13 +24,13 @@ These colors are to be used whenever generating plots to maintain consistency ac
 
 Example Usage:
 --------------
+
 To use a specific color in a plot:
 
-    >>> import matplotlib.pyplot as plt
-    >>> color = DEFAULT_COLORS['iit']
-    >>> plt.plot(data, color=color)
+  >>> import matplotlib.pyplot as plt
+  >>> color = DEFAULT_COLORS['iit']
+  >>> plt.plot(data, color=color)
 """
-
 
 DEFAULT_COLORS = {
     "iit": [
