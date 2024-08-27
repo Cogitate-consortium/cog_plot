@@ -2,34 +2,28 @@ import os
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
-import config
-from matplotlib import font_manager
 
-# get the parameters dictionary
-param = config.param
 
-# Set Helvetica as the default font:
-font_path = os.path.join(os.path.dirname(__file__), "Helvetica.ttf")
-font_manager.fontManager.addfont(font_path)
-prop = font_manager.FontProperties(fname=font_path)
-plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = prop.get_name()
+# Set arial as the default font:
+plt.rcParams.update({
+    'font.family': 'sans-serif',
+    'font.sans-serif': ['Arial'],
+    'axes.unicode_minus': False  # This ensures that minus signs are rendered correctly
+})
 
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
 matplotlib.rcParams['svg.fonttype'] = 'none'
 
-fig_size = param["figure_size_mm"]
-def_cmap = param["colors"]["cmap"]
-plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = param["font"]
-plt.rc('font', size=param["font_size"])  # controls default text sizes
-plt.rc('axes', titlesize=param["font_size"])  # fontsize of the axes title
-plt.rc('axes', labelsize=param["font_size"])  # fontsize of the x and y labels
-plt.rc('xtick', labelsize=param["font_size"])  # fontsize of the tick labels
-plt.rc('ytick', labelsize=param["font_size"])  # fontsize of the tick labels
-plt.rc('legend', fontsize=param["font_size"])  # legend fontsize
-plt.rc('figure', titlesize=param["font_size"])  # fontsize of the fi
+fig_size = [183, 108]
+def_cmap = 'RdYlBu_r'
+plt.rc('font', size=22)  # controls default text sizes
+plt.rc('axes', titlesize=22)  # fontsize of the axes title
+plt.rc('axes', labelsize=22)  # fontsize of the x and y labels
+plt.rc('xtick', labelsize=22)  # fontsize of the tick labels
+plt.rc('ytick', labelsize=22)  # fontsize of the tick labels
+plt.rc('legend', fontsize=22)  # legend fontsize
+plt.rc('figure', titlesize=22)  # fontsize of the fi
 
 
 def mm2inch(val):
@@ -40,7 +34,7 @@ def plot_matrix(data, x0, x_end, y0, y_end, mask=None, cmap=None, ax=None, ylim=
                 interpolation='lanczos',
                 xlabel="Time (s)", ylabel="Time (s)", xticks=None, yticks=None, cbar_label="Accuracy", filename=None,
                 vline=0,
-                title=None, square_fig=False):
+                title=None, square_fig=False, dpi=300):
     """
     This function plots 2D matrices such as temporal generalization decoding or time frequency decompositions with or
     without significance. If a significance mask is passed, the significance pixels will be surrounded with significance
@@ -138,7 +132,7 @@ def plot_matrix(data, x0, x_end, y0, y_end, mask=None, cmap=None, ax=None, ylim=
     cb.ax.set_yscale('linear')  # To make sure that the spacing is correct despite normalization
     if filename is not None:
         # Save to png
-        plt.savefig(filename, transparent=True, dpi=param["fig_res_dpi"])
+        plt.savefig(filename, transparent=True, dpi=dpi)
         # Save to svg:
         filename, file_extension = os.path.splitext(filename)
         plt.savefig(filename + ".svg", transparent=True)
@@ -152,7 +146,7 @@ def plot_matrix(data, x0, x_end, y0, y_end, mask=None, cmap=None, ax=None, ylim=
 
 def plot_pcolormesh(data, xs, ys, mask=None, cmap=None, ax=None, vlim=None, transparency=1.0,
                     xlabel="Time (s)", ylabel="Time (s)", cbar_label="Accuracy", filename=None, vline=0,
-                    title=None, square_fig=False):
+                    title=None, square_fig=False, dpi=300):
     if ax is None:
         if square_fig:
             fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
@@ -195,7 +189,7 @@ def plot_pcolormesh(data, xs, ys, mask=None, cmap=None, ax=None, vlim=None, tran
     cb.ax.set_yscale('linear')  # To make sure that the spacing is correct despite normalization
     if filename is not None:
         # Save to png
-        plt.savefig(filename, transparent=True, dpi=param["fig_res_dpi"])
+        plt.savefig(filename, transparent=True, dpi=300)
         # Save to svg:
         filename, file_extension = os.path.splitext(filename)
         plt.savefig(filename + ".svg", transparent=True)
@@ -211,7 +205,7 @@ def plot_pcolormesh(data, xs, ys, mask=None, cmap=None, ax=None, vlim=None, tran
 def plot_time_series(data, t0, tend, ax=None, err=None, colors=None, vlines=None, xlim=None, ylim=None,
                      xlabel="Time (s)", ylabel="Activation", err_transparency=0.2,
                      filename=None, title=None, square_fig=False, conditions=None, do_legend=True,
-                     patches=None, patch_color="r", patch_transparency=0.2):
+                     patches=None, patch_color="r", patch_transparency=0.2, dpi=300):
     """
     This function plots times series such as average of iEEG activation across trials and/or electrodes... If the error
     parameter is passed, the error will be plotted as shaded around the main line. Additionally, patches
@@ -295,7 +289,7 @@ def plot_time_series(data, t0, tend, ax=None, err=None, colors=None, vlines=None
     plt.tight_layout()
     if filename is not None:
         # Save to png
-        plt.savefig(filename, transparent=True, dpi=param["fig_res_dpi"])
+        plt.savefig(filename, transparent=True, dpi=dpi)
         # Save to svg:
         filename, file_extension = os.path.splitext(filename)
         plt.savefig(filename + ".svg", transparent=True)
@@ -308,7 +302,7 @@ def plot_time_series(data, t0, tend, ax=None, err=None, colors=None, vlines=None
 
 def plot_rasters(data, t0, tend, cmap=None, ax=None, ylim=None, midpoint=None, transparency=1.0,
                  xlabel="Time (s)", ylabel="Time (s)", cbar_label="Accuracy", filename=None, vlines=0,
-                 title=None, square_fig=False, conditions=None, cond_order=None):
+                 title=None, square_fig=False, conditions=None, cond_order=None, dpi=300):
     """
     This function plots 2D matrices such as temporal generalization decoding or time frequency decompositions with or
     without significance. If a significance mask is passed, the significance pixels will be surrounded with significance
@@ -416,7 +410,7 @@ def plot_rasters(data, t0, tend, cmap=None, ax=None, ylim=None, midpoint=None, t
     cb.ax.set_yscale('linear')  # To make sure that the spacing is correct despite normalization
     if filename is not None:
         # Save to png
-        plt.savefig(filename, transparent=True, dpi=param["fig_res_dpi"])
+        plt.savefig(filename, transparent=True, dpi=dpi)
         # Save to svg:
         filename, file_extension = os.path.splitext(filename)
         plt.savefig(filename + ".svg", transparent=True)

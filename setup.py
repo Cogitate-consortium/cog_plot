@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mypackage',
+    name='cog_plot',
     version='0.1.0',
     description='A brief description of your project',
     long_description=open('README.md').read(),
