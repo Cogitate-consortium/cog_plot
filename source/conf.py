@@ -9,7 +9,7 @@
 project = 'cog_plot'
 copyright = '2024, Alex Lepauvre'
 author = 'Alex Lepauvre'
-release = '0.0.1'
+release = '0.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -32,3 +32,9 @@ html_static_path = ['source/_static']
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
+html_logo = "./_static/cogitate_logo.png"
+html_theme_options = {
+    "switcher": {
+        "json_url": "https://mysite.org/en/latest/_static/switcher.json",
+    }
+}
