@@ -1,0 +1,6 @@
+﻿cog\_plot.plot\_time\_series
+============================
+
+.. currentmodule:: cog_plot
+
+.. autofunction:: plot_time_series
