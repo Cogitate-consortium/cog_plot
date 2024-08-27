@@ -26,7 +26,20 @@ plt.rc('legend', fontsize=22)  # legend fontsize
 plt.rc('figure', titlesize=22)  # fontsize of the fi
 
 
-def mm2inch(val):
+def _mm2inch(val):
+    """
+    Convert millimeters to inches.
+
+    Parameters
+    ----------
+    val : float
+        Value in millimeters.
+
+    Returns
+    -------
+    float
+        Value converted to inches.
+    """
     return val / 25.4
 
 
@@ -36,48 +49,70 @@ def plot_matrix(data, x0, x_end, y0, y_end, mask=None, cmap=None, ax=None, ylim=
                 vline=0,
                 title=None, square_fig=False, dpi=300):
     """
-    This function plots 2D matrices such as temporal generalization decoding or time frequency decompositions with or
-    without significance. If a significance mask is passed, the significance pixels will be surrounded with significance
-    line. The significance parts will be fully opaque but the non-significant patches transparency can be controlled
-    by the transparency parameter
-    :param data: (2D numpy array) data to plot
-    :param x0: (float) first sample value for the x axis, for ex the first time point in the data to be able to
-    create meaningful axes
-    :param x_end: (float) final sample value for the x axis, for ex the last time point in the data to be able to create
-    meaningful axes.
-    :param y0: (float) first sample value for the y axis, for ex the first time point in the data to be able to
-    create meaningful axes or the first frequency of a frequency decomposition...
-    :param y_end: (float) final sample value for the y axis, for ex  the last time point in the data to be able to
-    create meaningful axes or the first frequency of a frequency decomposition...
-    :param mask: (2D numpy array of booleans) significance mask. MUST BE THE SAME SIZE as data. True where the data
-    are significance, false elsewhere
-    :param cmap: (string) name of the color map
-    :param ax: (matplotlib ax object) ax on which to plot the data. If not passed, a new figure will be created
-    :param ylim: (list of 2 floats) limits of the data for the plotting. If not passed, taking the 5 and 95 percentiles
-    of the data
-    :param midpoint: (float) midpoint of the data. Centers the color bar on this value.
-    :param transparency: (float) transparency of the non-significant patches of the matrix
-    :param xlabel: (string) xlabel fo the data
-    :param ylabel: (string) ylabel fo the data
-    :param xticks: (list of strings) xtick label names
-    :param yticks: (list of strings) ytick label names
-    :param cbar_label: (string) label of the color bar
-    :param filename: (string or pathlib path object) name of the file to save the figures to. If not passed, nothing
-    will be saved. Must be the full name with png extension. The script will take care of saving the data to svg as well
-    and as csv
-    :param vline: (float) coordinates of vertical and horizontal lines to plot
-    :param title: (string) title of the figure
-    :param square_fig: (boolean) whether or not to have the figure squared proportions. Useful for temporal
-    generalization plots that are usually square!
-    :return:
+    Plot a 2D matrix with optional significance mask.
+
+    This function is used to plot 2D matrices, such as temporal generalization decoding or time-frequency decompositions,
+    with or without significance masking.
+
+    Parameters
+    ----------
+    data : 2D numpy array
+        Data to plot.
+    x0 : float
+        First sample value for the x-axis (e.g., the first time point in the data).
+    x_end : float
+        Final sample value for the x-axis (e.g., the last time point in the data).
+    y0 : float
+        First sample value for the y-axis (e.g., the first time point in the data).
+    y_end : float
+        Final sample value for the y-axis (e.g., the last time point in the data).
+    mask : 2D numpy array of booleans, optional
+        Significance mask (same size as data). True where the data are significant, False elsewhere.
+    cmap : str, optional
+        Name of the colormap.
+    ax : matplotlib.axes.Axes, optional
+        Axes on which to plot the data. If not provided, a new figure will be created.
+    ylim : list of 2 floats, optional
+        Limits for the color scale. If not provided, the 5th and 95th percentiles of the data will be used.
+    midpoint : float, optional
+        Midpoint of the data. Centers the color bar on this value.
+    transparency : float, optional
+        Transparency of the non-significant areas of the matrix.
+    interpolation : str, optional
+        Interpolation method for the image.
+    xlabel : str, optional
+        Label for the x-axis.
+    ylabel : str, optional
+        Label for the y-axis.
+    xticks : list of str, optional
+        Labels for the x-axis ticks.
+    yticks : list of str, optional
+        Labels for the y-axis ticks.
+    cbar_label : str, optional
+        Label for the color bar.
+    filename : str or pathlib.Path, optional
+        Name of the file to save the figure. If not provided, the figure will not be saved.
+    vline : float, optional
+        X-coordinate of vertical and horizontal lines to plot.
+    title : str, optional
+        Title of the figure.
+    square_fig : bool, optional
+        Whether to enforce square proportions for the figure.
+    dpi : int, optional
+        Dots per inch (DPI) for the saved figure.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        The axis on which the plot was drawn.
     """
     if ax is None:
         if square_fig:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[0])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[0])])
         else:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[1])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[1])])
     if ylim is None:
         ylim = [np.percentile(data, 5), np.percentile(data, 95)]
 
@@ -147,13 +182,58 @@ def plot_matrix(data, x0, x_end, y0, y_end, mask=None, cmap=None, ax=None, ylim=
 def plot_pcolormesh(data, xs, ys, mask=None, cmap=None, ax=None, vlim=None, transparency=1.0,
                     xlabel="Time (s)", ylabel="Time (s)", cbar_label="Accuracy", filename=None, vline=0,
                     title=None, square_fig=False, dpi=300):
+    """
+    Plot a 2D pcolormesh with optional significance mask.
+
+    This function is used to plot 2D data with optional masking for significance.
+
+    Parameters
+    ----------
+    data : 2D numpy array
+        Data to plot.
+    xs : 1D array-like
+        X coordinates for the pcolormesh.
+    ys : 1D array-like
+        Y coordinates for the pcolormesh.
+    mask : 2D numpy array of booleans, optional
+        Significance mask (same size as data). True where the data are significant, False elsewhere.
+    cmap : str, optional
+        Name of the colormap.
+    ax : matplotlib.axes.Axes, optional
+        Axes on which to plot the data. If not provided, a new figure will be created.
+    vlim : list of 2 floats, optional
+        Limits for the color scale. If not provided, the 5th and 95th percentiles of the data will be used.
+    transparency : float, optional
+        Transparency of the non-significant areas of the matrix.
+    xlabel : str, optional
+        Label for the x-axis.
+    ylabel : str, optional
+        Label for the y-axis.
+    cbar_label : str, optional
+        Label for the color bar.
+    filename : str or pathlib.Path, optional
+        Name of the file to save the figure. If not provided, the figure will not be saved.
+    vline : float, optional
+        X-coordinate of vertical and horizontal lines to plot.
+    title : str, optional
+        Title of the figure.
+    square_fig : bool, optional
+        Whether to enforce square proportions for the figure.
+    dpi : int, optional
+        Dots per inch (DPI) for the saved figure.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        The axis on which the plot was drawn.
+    """
     if ax is None:
         if square_fig:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[0])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[0])])
         else:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[1])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[1])])
 
     if vlim is None:
         vlim = [np.percentile(data, 5), np.percentile(data, 95)]
@@ -207,47 +287,68 @@ def plot_time_series(data, t0, tend, ax=None, err=None, colors=None, vlines=None
                      filename=None, title=None, square_fig=False, conditions=None, do_legend=True,
                      patches=None, patch_color="r", patch_transparency=0.2, dpi=300):
     """
-    This function plots times series such as average of iEEG activation across trials and/or electrodes... If the error
-    parameter is passed, the error will be plotted as shaded around the main line. Additionally, patches
-    can be plotted over the data to represent significance or time windows of interest... Additionally, vertical lines
-    can be plotted to delimitate relevant time points.
-    :param data: (2D numpy array) contains time series to plot. The first dimension should be different conditiosn
-    and the last dimension is time! The first dimension here should be ordered according to the other parameters,
-    such as the conditions, errors...
-    :param t0: (float) time 0, i.e. the first time point in the data to be able to create meaningful axes
-    :param tend: (float) final time point, i.e. the last time point in the data to be able to create meaningful axes
-    :param ax: (matplotlib ax object) ax on which to plot the data. If not passed, a new figure will be created
-    :param err: (2D numpy array) contains errors of the time series to plot. The first dimension should be different
-    conditions and the last dimension is time! The first dimension here should be ordered according to the other
-    parameters, such as the data, conditions...
-    :param colors: (list of string or RGB float triplets) colors of each condition. There should be as many as there
-    are rows in the data
-    :param vlines: (list of floats) x coordinates at which to draw the vertical lines
-    :param xlim: (list of 2 floats) limits of the x axis if any
-    :param ylim: (list of 2 floats) limits of the y axis if any
-        :param xlabel: (string) xlabel fo the data
-    :param ylabel: (string) ylabel fo the data
-    :param filename: (string or pathlib path object) name of the file to save the figures to. If not passed, nothing
-    will be saved. Must be the full name with png extension. The script will take care of saving the data to svg as well
-    and as csv
-    :param title: (string) title of the figure
-    :param square_fig: (boolean) whether or not to have the figure squared proportions. Useful for temporal
-    generalization plots that are usually square!
-    :param err_transparency: (float) transparency of the errors around the mean
-    :param conditions: (list of strings) name of each condition to be plotted, for legend
-    :param do_legend: (boolean) whether or not to plot the legend
-    :param patches: (list of 2 floats of list of list) x coordinates of the start and end of a patch
-    :param patch_color: (string or RGB triplet) color of the patch
-    :param patch_transparency: (float) transparency of the patch
-    :return:
+    Plot time series data with optional error shading and significance patches.
+
+    This function is used to plot time series data, with options to include error shading, significance patches, and
+    vertical lines for important time points.
+
+    Parameters
+    ----------
+    data : 2D numpy array
+        Time series data to plot. The first dimension should represent different conditions, and the second dimension is time.
+    t0 : float
+        Start time (e.g., first time point in the data).
+    tend : float
+        End time (e.g., last time point in the data).
+    ax : matplotlib.axes.Axes, optional
+        Axes on which to plot the data. If not provided, a new figure will be created.
+    err : 2D numpy array, optional
+        Error values corresponding to the time series data. The first dimension should represent different conditions, and the second dimension is time.
+    colors : list of str or RGB tuples, optional
+        Colors for each condition. There should be as many colors as there are rows in the data.
+    vlines : list of floats, optional
+        X-coordinates at which to draw vertical lines.
+    xlim : list of 2 floats, optional
+        Limits for the x-axis.
+    ylim : list of 2 floats, optional
+        Limits for the y-axis.
+    xlabel : str, optional
+        Label for the x-axis.
+    ylabel : str, optional
+        Label for the y-axis.
+    err_transparency : float, optional
+        Transparency for the error shading.
+    filename : str or pathlib.Path, optional
+        Name of the file to save the figure. If not provided, the figure will not be saved.
+    title : str, optional
+        Title of the figure.
+    square_fig : bool, optional
+        Whether to enforce square proportions for the figure.
+    conditions : list of str, optional
+        Names of each condition for the legend.
+    do_legend : bool, optional
+        Whether to include a legend in the plot.
+    patches : list of lists or list of tuples, optional
+        X-coordinates of the start and end of patches to be drawn over the data.
+    patch_color : str or RGB tuple, optional
+        Color for the patches.
+    patch_transparency : float, optional
+        Transparency for the patches.
+    dpi : int, optional
+        Dots per inch (DPI) for the saved figure.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        The axis on which the plot was drawn.
     """
     if ax is None:
         if square_fig:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[0])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[0])])
         else:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[1])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[1])])
     if conditions is None:
         conditions = ["" for i in range(data.shape[0])]
     if colors is None:
@@ -304,42 +405,61 @@ def plot_rasters(data, t0, tend, cmap=None, ax=None, ylim=None, midpoint=None, t
                  xlabel="Time (s)", ylabel="Time (s)", cbar_label="Accuracy", filename=None, vlines=0,
                  title=None, square_fig=False, conditions=None, cond_order=None, dpi=300):
     """
-    This function plots 2D matrices such as temporal generalization decoding or time frequency decompositions with or
-    without significance. If a significance mask is passed, the significance pixels will be surrounded with significance
-    line. The significance parts will be fully opaque but the non-significant patches transparency can be controlled
-    by the transparency parameter
-    :param data: (2D numpy array) data to plot
-    :param t0: (float) time 0, i.e. the first time point in the data to be able to create meaningful axes
-    :param tend: (float) final time point, i.e. the last time point in the data to be able to create meaningful axes
-    :param cmap: (string) name of the color map
-    :param ax: (matplotlib ax object) ax on which to plot the data. If not passed, a new figure will be created
-    :param ylim: (list of 2 floats) limits of the data for the plotting. If not passed, taking the 5 and 95 percentiles
-    of the data
-    :param midpoint: (float) midpoint of the data. Centers the color bar on this value.
-    :param transparency: (float) transparency of the non-significant patches of the matrix
-    :param xlabel: (string) xlabel fo the data
-    :param ylabel: (string) ylabel fo the data
-    :param cbar_label: (string) label of the color bar
-    :param filename: (string or pathlib path object) name of the file to save the figures to. If not passed, nothing
-    will be saved. Must be the full name with png extension. The script will take care of saving the data to svg as well
-    and as csv
-    :param vlines: (float) coordinates of vertical and horizontal lines to plot
-    :param title: (string) title of the figure
-    :param square_fig: (boolean) whether or not to have the figure squared proportions. Useful for temporal
-    generalization plots that are usually square!
-    :param conditions: (list or iterable of some sort) condition of each trial to order them properly.
-    :param cond_order: (list) order in which to sort the conditions. So say you are trying to plot faces,
-    objects, letters and so on, and you want to enforce that in the plot the faces appear first, then the objects,
-    then the letters, pass the list ["face", "object", "letter"]
-    :return:
+    Plot raster data with optional sorting by conditions.
+
+    This function is used to plot 2D raster data with optional sorting by conditions.
+
+    Parameters
+    ----------
+    data : 2D numpy array
+        Data to plot.
+    t0 : float
+        Start time (e.g., first time point in the data).
+    tend : float
+        End time (e.g., last time point in the data).
+    cmap : str, optional
+        Name of the colormap.
+    ax : matplotlib.axes.Axes, optional
+        Axes on which to plot the data. If not provided, a new figure will be created.
+    ylim : list of 2 floats, optional
+        Limits for the color scale.
+    midpoint : float, optional
+        Midpoint of the data. Centers the color bar on this value.
+    transparency : float, optional
+        Transparency of the non-significant areas of the matrix.
+    xlabel : str, optional
+        Label for the x-axis.
+    ylabel : str, optional
+        Label for the y-axis.
+    cbar_label : str, optional
+        Label for the color bar.
+    filename : str or pathlib.Path, optional
+        Name of the file to save the figure. If not provided, the figure will not be saved.
+    vlines : float or list of floats, optional
+        X-coordinates of vertical lines to draw.
+    title : str, optional
+        Title of the figure.
+    square_fig : bool, optional
+        Whether to enforce square proportions for the figure.
+    conditions : list or array-like, optional
+        Conditions for each trial to order them.
+    cond_order : list of str, optional
+        Order in which to sort the conditions.
+    dpi : int, optional
+        Dots per inch (DPI) for the saved figure.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+        The axis on which the plot was drawn.
     """
     if ax is None:
         if square_fig:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[0])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[0])])
         else:
-            fig, ax = plt.subplots(figsize=[mm2inch(fig_size[0]),
-                                            mm2inch(fig_size[1])])
+            fig, ax = plt.subplots(figsize=[_mm2inch(fig_size[0]),
+                                            _mm2inch(fig_size[1])])
     if ylim is None:
         ylim = [np.percentile(data, 5), np.percentile(data, 95)]
     if midpoint is not None:
