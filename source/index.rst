@@ -7,9 +7,9 @@
 .. raw:: html
 
    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-     <img src="_static//img/cogitate_logo.png" alt="Left Logo" width="200">
+     <img src="/source/_static/img/cogitate_logo.png" alt="Left Logo" width="200">
      <h1 style="text-align: center; flex-grow: 1;">cog_lib</h1>
-     <img src="_static/img/templeton_logo.png" alt="Right Logo" width="200">
+     <img src="/source/_static/img/templeton_logo.png" alt="Right Logo" width="200">
    </div>
 
 This repository contains a package called ``cog_plot`` containing functions to generate the default plot types used in the cogitate papers.
@@ -49,12 +49,12 @@ We would like to thank all the COGITATE consortium members:
    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
       <div style="text-align: center;">
          <a href="https://www.arc-cogitate.com/our-team" target="_blank">
-            <img src="_static/img/IEEG DP Authors.png" alt="COGITATE team">
+            <img src="/source/_static/img/IEEG DP Authors.png" alt="COGITATE team">
          </a>
       </div>
    </div>
 
-.. image:: _static/img/templeton_logo.png
+.. image:: /source/_static/img/templeton_logo.png
    :width: 200
    :align: right
 
