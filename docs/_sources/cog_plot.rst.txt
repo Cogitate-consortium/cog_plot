@@ -1,0 +1,29 @@
+cog\_plot package
+=================
+
+Submodules
+----------
+
+cog\_plot.colors module
+-----------------------
+
+.. automodule:: cog_plot.colors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cog\_plot.plotters module
+-------------------------
+
+.. automodule:: cog_plot.plotters
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: cog_plot
+   :members:
+   :undoc-members:
+   :show-inheritance:
