@@ -24,7 +24,7 @@ The package can be installed via pip, like so:
 
 .. code-block:: bash
 
-   pip install https://github.com/Cogitate-consortium/cog_plot
+   pip install git+https://github.com/Cogitate-consortium/cog_plot.git
 
 Support
 =======
